@@ -1,0 +1,30 @@
+<html>
+    <head>
+
+    </head>
+    <body onload="retrievePreviousCustomer()">
+        <h1 id="myHeading">Amazing home page</h1><p>Are you amazed yet?</p> 
+        <p>It's simply stupendous...</p>
+		<p>Last customer was... <span id="lastCustomer"></span></p>
+		<form>
+			<label for="currentCustomer">What is your name?</label>
+			<input type="text" id="currentCustomer" />
+			<button type="button" onclick="storeCurrentCustomer()">Store name</button> 
+		</form>
+		
+		<script>
+			function retrievePreviousCustomer(){
+				// set content of span element to value retrieved from localStorage
+				const previousCustomer = localStorage.getItem("customerName");
+				document.getElementById("lastCustomer").innerHTML = previousCustomer;	
+			}
+		
+			function storeCurrentCustomer(){
+				// retrieve value from the input element and store it
+				const currentCust = document.getElementById("currentCustomer").value;
+				localStorage.setItem("customerName", currentCust);
+			}
+		
+		</script>
+    </body>
+</html>
